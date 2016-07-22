@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='ml_util',
-      version='1.0',
+      version='1.0.1',
       description='Library for machine learning',
       url='git@github.com:pauloalves86/ml_util.git',
       author='Paulo Alves',
