@@ -2,7 +2,7 @@ from datetime import datetime as _dt
 
 import numpy as _np
 from sklearn.metrics import log_loss as _log_loss
-from sklearn.cross_validation import StratifiedKFold as _StratifiedKFold
+from sklearn.model_selection import StratifiedKFold as _StratifiedKFold
 
 __all__ = ['cross_val_predict_proba']
 
@@ -22,7 +22,7 @@ def cross_val_predict_proba(classifier, X, y, cv=3, random_state=None, verbose=0
     -------
 
     """
-    cv = _StratifiedKFold(y, n_folds=cv, random_state=random_state) if type(cv) is int else cv
+    cv = _StratifiedKFold(n_splits=cv, shuffle=True, random_state=random_state) if type(cv) is int else cv
     cross_scores = _np.empty(0)
     predict_proba = _np.empty((y.shape[0], len(_np.unique(y))))
     for i, (index_train, index_test) in enumerate(cv, 1):

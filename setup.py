@@ -6,5 +6,5 @@ setup(name='ml_util',
       url='git@github.com:pauloalves86/ml_util.git',
       author='Paulo Alves',
       packages=['ml_util'],
-      install_requires=['numpy', 'scikit-learn'],
+      install_requires=['numpy', 'scikit-learn[alldeps]'],
       zip_safe=False)
