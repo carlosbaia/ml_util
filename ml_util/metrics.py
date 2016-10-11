@@ -25,7 +25,7 @@ def cross_val_predict_proba(classifier, X, y, cv=3, random_state=None, verbose=0
     cv = _StratifiedKFold(n_splits=cv, shuffle=True, random_state=random_state) if type(cv) is int else cv
     cross_scores = _np.empty(0)
     predict_proba = _np.empty((y.shape[0], len(_np.unique(y))))
-    for i, (index_train, index_test) in enumerate(cv, 1):
+    for i, (index_train, index_test) in enumerate(cv.split(X, y), 1):
         start_time = _dt.now()
         if verbose > 0:
             print('cv=%d' % i, end=' ', flush=True)
